@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponent } from './Commons/header/header.component';
 import { FooterComponent } from "./Commons/footer/footer.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePickerComponent } from './NgbComponents/date-picker/date-picker.component';
 
 
 @NgModule({
@@ -17,15 +19,19 @@ import { FooterComponent } from "./Commons/footer/footer.component";
     LoginComponent,
     LandingPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  exports:[DatePickerComponent],
+  bootstrap: [AppComponent,
+  DatePickerComponent]
 })
 export class AppModule { }
