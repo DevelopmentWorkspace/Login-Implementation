@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -27,11 +28,10 @@ import { DatePickerComponent } from './NgbComponents/date-picker/date-picker.com
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
-  exports:[DatePickerComponent],
-  bootstrap: [AppComponent,
-  DatePickerComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

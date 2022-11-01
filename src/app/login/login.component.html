@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <div class="col-4 card shadow" style="border-radius: 1.25rem; border-width: 0;">
+<div class="d-flex justify-content-end align-items-end" style="padding: 0;margin-top: 150px; margin-right: 150px; margin-bottom: 150px;">
+    <div class="col-auto card shadow " style="border-radius: 1.25rem; border-width: 0; ">
         <div class="card-body">
             <form>
                 <div class="row" style="padding-bottom: 10px;">
@@ -13,14 +13,14 @@
                     </div>
                 </div>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-2">
+                    <div class="col-2" style="padding-right: 0;">
                         <label class="form-text"
-                            style="font-size: 0.875rem; margin-top: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
+                            style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
                             Id:</label>
                     </div>
                     <div class="col" style="padding-left: 0;">
                         <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Enter your E-mail address"/>
+                            placeholder="Enter your E-mail address" />
                     </div>
                 </div>
                 <div class="row" style="padding-bottom: 10px;">
@@ -35,13 +35,47 @@
                 </div>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Date Of birth" />
-                            <app-date-picker></app-date-picker>
+                        <app-date-picker></app-date-picker>
+                    </div>
+                    <div class="col" style="padding-left: 0;">
+                        <select class="form-select text-muted" id="inlineFormCustomSelectPref">
+                            <option selected>Gender</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-2" style="padding-right: 0;">
+                        <label class="form-text" style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; 
+                            padding-bottom:10px ; font-weight: 500;">Address:</label>
                     </div>
                     <div class="col" style="padding-left: 0;">
                         <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Confirm Password" />
+                            placeholder="Enter your address" />
+                    </div>
+                    <div class="col">
+                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
+                            placeholder="State" />
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col">
+                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
+                            placeholder="Country" />
+                    </div>
+                    <div class="col" style="padding-left: 0;">
+                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
+                            placeholder="Zip Code" />
+                    </div>
+                </div>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary"
+                            style="padding-left: 25px; padding-right: 25px;">Create Account</button>
+                        <p class="text-muted" style="padding: 10px; margin: 0;"> OR </p>
+                        <button type="submit" class="btn btn-primary">Login to an Existing Account</button>
                     </div>
                 </div>
             </form>

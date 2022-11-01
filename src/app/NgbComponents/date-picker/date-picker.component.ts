@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-date-picker',
@@ -8,7 +7,7 @@ import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adap
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
-	model:NgbDateStruct | undefined
+	model:NgbDateStruct | undefined;
   today = this.calendar.getToday();
 
   constructor(private calendar: NgbCalendar) {  }
