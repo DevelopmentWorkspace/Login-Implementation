@@ -1,0 +1,119 @@
+<!-- Section: Design Block -->
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container" >
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        Welcome to the SignUp page <br />
+                        <span class="text-primary">SignUp for more exciting WebPages.</span>
+                    </h1>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card shadow" style="border-radius: 1.25rem; border-width: 0;">
+                        <div class="card-body py-5 px-md-5">
+                            <form>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col">
+                                        <Input type="text" class="form-control" id="inputFirstName"
+                                            style="overflow: auto;" placeholder="First Name" />
+                                    </div>
+                                    <div class="col">
+                                        <Input type="text" class="form-control" id="inputLastName"
+                                            style="overflow: auto;" placeholder="Last name" />
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col-2" style="padding-right: 0;">
+                                        <label class="form-text"
+                                            style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
+                                            Id:</label>
+                                    </div>
+                                    <div class="col" style="padding-left: 0;">
+                                        <Input type="text" class="form-control" id="inputEmail" style="overflow: auto;"
+                                            placeholder="Enter your E-mail address" />
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col">
+                                        <Input type="text" class="form-control" id="inputPassword"
+                                            style="overflow: auto;" placeholder="New Password" />
+                                    </div>
+                                    <div class="col" style="padding-left: 0;">
+                                        <Input type="text" class="form-control" id="inputConfirPassword"
+                                            style="overflow: auto;" placeholder="Confirm Password" />
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col">
+                                        <app-date-picker></app-date-picker>
+                                    </div>
+                                    <div class="col" style="padding-left: 0;">
+                                        <select class="form-select text-muted" id="inlineFormCustomSelectPref">
+                                            <option selected>Gender</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col-2" style="padding-right: 0;">
+                                        <label class="form-text" style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; 
+                                    padding-bottom:10px ; font-weight: 500;">Address:</label>
+                                    </div>
+                                    <div class="col" style="padding-left: 0;">
+                                        <Input type="text" class="form-control" id="inputAddress"
+                                            style="overflow: auto;" placeholder="Enter your address" />
+                                    </div>
+                                    <div class="col">
+                                        <Input type="text" class="form-control" id="inputState" style="overflow: auto;"
+                                            placeholder="State" />
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-bottom: 10px;">
+                                    <div class="col">
+                                        <Input type="text" class="form-control" id="inputCountry"
+                                            style="overflow: auto;" placeholder="Country" />
+                                    </div>
+                                    <div class="col" style="padding-left: 0;">
+                                        <Input type="text" class="form-control" id="inputZipCode"
+                                            style="overflow: auto;" placeholder="Zip Code" />
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Sign up
+                                </button>
+
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <p class="text-muted">or sign up with:</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-github"></i>
+                                    </button>
+                                </div>
+                                <app-login></app-login>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

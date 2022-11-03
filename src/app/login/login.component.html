@@ -1,84 +1,91 @@
-<div class="d-flex justify-content-end align-items-end" style="padding: 0;margin-top: 150px; margin-right: 150px; margin-bottom: 150px;">
-    <div class="col-auto card shadow " style="border-radius: 1.25rem; border-width: 0; ">
-        <div class="card-body">
-            <form>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="First Name" />
-                    </div>
-                    <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Last name" />
-                    </div>
+<p class="text-muted">Already have an account:</p>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginModal">
+    Login
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="form" aria-labelledby="#loginModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="border-radius: 1.25rem;">
+            <div class="card" style="border-radius: 1.25rem;">
+                <button type="button" class="btn-close position-absolute end-0" data-bs-dismiss="modal"
+                    aria-label="Close" style="padding: 0.90em;"></button>
+                <div class="card-body py-5 px-md-5">
+                    <form [formGroup] = "loginForm">
+                        <!-- [formGroup]="loginForm" (ngOnsubmit)="onLoginClick()" -->
+                        <!-- Email input -->
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="col-sm-3" style="padding-right: 0;">
+                                <label class="form-text"
+                                    style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
+                                    Id:</label>
+                            </div>
+                            <div class="col" style="padding-left: 5px;">
+                                <Input type="text" class="form-control" id="loginEmail"
+                                    style="overflow: auto; border-radius: 10px;" placeholder="Enter your E-mail address" #email
+                                     value=""/>
+                            </div>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="col-sm-3" style="padding-right: 0;">
+                                <label class="form-text"
+                                    style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">Password:</label>
+                            </div>
+                            <div class="col input-group" style="padding-left: 5px;">
+                                <Input type="password" class="form-control" id="LoginPassword"
+                                    style="overflow: auto; border-radius: 10px;" placeholder="Enter your Password"
+                                    #password value="" />
+                                <button class="btn btn-link btn-floating fa-regular fa-eye-slash" id="hidePassword"
+                                    style="padding-left: 10px; text-decoration: none; place-self: center; color: #6c757d;"
+                                    (click)="onShowandHidePasswordClicked()"></button>
+                            </div>
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+                                        checked />
+                                    <label class="form-check-label" for="form2Example31">
+                                        Remember me </label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- Simple link -->
+                                <a href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4" (click) = "onLoginClick('1dipak@atai.ai' , '12')">Sign In</button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>or Login with:</p>
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-2" style="padding-right: 0;">
-                        <label class="form-text"
-                            style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
-                            Id:</label>
-                    </div>
-                    <div class="col" style="padding-left: 0;">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Enter your E-mail address" />
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="New Password" />
-                    </div>
-                    <div class="col" style="padding-left: 0;">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Confirm Password" />
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <app-date-picker></app-date-picker>
-                    </div>
-                    <div class="col" style="padding-left: 0;">
-                        <select class="form-select text-muted" id="inlineFormCustomSelectPref">
-                            <option selected>Gender</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="3">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-2" style="padding-right: 0;">
-                        <label class="form-text" style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; 
-                            padding-bottom:10px ; font-weight: 500;">Address:</label>
-                    </div>
-                    <div class="col" style="padding-left: 0;">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Enter your address" />
-                    </div>
-                    <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="State" />
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Country" />
-                    </div>
-                    <div class="col" style="padding-left: 0;">
-                        <Input type="text" class="form-control" id="inputEmail4" style="overflow: auto;"
-                            placeholder="Zip Code" />
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary"
-                            style="padding-left: 25px; padding-right: 25px;">Create Account</button>
-                        <p class="text-muted" style="padding: 10px; margin: 0;"> OR </p>
-                        <button type="submit" class="btn btn-primary">Login to an Existing Account</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
