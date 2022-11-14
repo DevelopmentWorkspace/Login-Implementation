@@ -116,6 +116,7 @@
   },
   "defaultProject": "Login-Implementation",
   "cli": {
+    "analytics": "aa11f162-12b3-4d26-9af0-7fc898885910",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }
