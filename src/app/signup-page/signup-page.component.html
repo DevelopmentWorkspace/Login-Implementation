@@ -6,7 +6,7 @@
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <h1 class="my-5 display-3 fw-bold ls-tight">
-                        Welcome to the SignUp page <br />
+                        Welcome to the SignUp page <br >
                         <span class="text-primary">SignUp for more exciting WebPages.</span>
                     </h1>
                 </div>
@@ -14,15 +14,15 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="card shadow" style="border-radius: 1.25rem; border-width: 0;">
                         <div class="card-body py-5 px-md-5">
-                            <form>
+                            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
                                 <div class="row" style="padding-bottom: 10px;">
-                                    <div class="col">
-                                        <Input type="text" class="form-control" id="inputFirstName"
-                                            style="overflow: auto;" placeholder="First Name" />
+                                    <div class="col" >
+                                        <input type="text" class="form-control" id="inputFirstName"
+                                            style="overflow: auto;" formControlName="firstName" placeholder="First Name" >
                                     </div>
-                                    <div class="col">
-                                        <Input type="text" class="form-control" id="inputLastName"
-                                            style="overflow: auto;" placeholder="Last name" />
+                                    <div class="col" >
+                                        <input type="text" class="form-control" id="inputLastName"
+                                            style="overflow: auto;" formControlName="lastName" placeholder="Last Name" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-bottom: 10px;">
@@ -31,19 +31,19 @@
                                             style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">E-mail
                                             Id:</label>
                                     </div>
-                                    <div class="col" style="padding-left: 0;">
-                                        <Input type="text" class="form-control" id="inputEmail" style="overflow: auto;"
-                                            placeholder="Enter your E-mail address" />
+                                    <div class="col" style="padding-left: 0;" >
+                                        <input type="email" class="form-control" id="inputEmail" style="overflow: auto;" formControlName="emailID"
+                                            placeholder="Enter your E-mail address" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-bottom: 10px;">
                                     <div class="col">
-                                        <Input type="text" class="form-control" id="inputPassword"
-                                            style="overflow: auto;" placeholder="New Password" />
+                                        <input type="password" class="form-control" id="inputPassword"
+                                            style="overflow: auto;" formControlName="newPassword" placeholder="New Password" >
                                     </div>
                                     <div class="col" style="padding-left: 0;">
-                                        <Input type="text" class="form-control" id="inputConfirPassword"
-                                            style="overflow: auto;" placeholder="Confirm Password" />
+                                        <input type="password" class="form-control" id="inputConfirPassword"
+                                            style="overflow: auto;" formControlName="confirmPassword" placeholder="Confirm Password" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-bottom: 10px;">
@@ -51,38 +51,40 @@
                                         <app-date-picker></app-date-picker>
                                     </div>
                                     <div class="col" style="padding-left: 0;">
-                                        <select class="form-select text-muted" id="inlineFormCustomSelectPref">
-                                            <option selected>Gender</option>
-                                            <option value="1">Male</option>
-                                            <option value="2">Female</option>
-                                            <option value="3">Other</option>
+                                        <select class="form-select text-muted" id="inlineFormCustomSelectPref"formControlName="gender">
+                                            <option value="" disabled selected>Gender</option>
+                                            <option >Male</option>
+                                            <option >Female</option>
+                                            <option >Other</option>
                                         </select>
                                     </div>
                                 </div>
+                                <div formGroupName="location">
                                 <div class="row" style="padding-bottom: 10px;">
                                     <div class="col-2" style="padding-right: 0;">
                                         <label class="form-text" style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; 
                                     padding-bottom:10px ; font-weight: 500;">Address:</label>
                                     </div>
                                     <div class="col" style="padding-left: 0;">
-                                        <Input type="text" class="form-control" id="inputAddress"
-                                            style="overflow: auto;" placeholder="Enter your address" />
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            style="overflow: auto;" formControlName="address" placeholder="Enter your address" >
                                     </div>
                                     <div class="col">
-                                        <Input type="text" class="form-control" id="inputState" style="overflow: auto;"
-                                            placeholder="State" />
+                                        <input type="text" class="form-control" id="inputState" style="overflow: auto;"
+                                        formControlName="state" placeholder="State" >
                                     </div>
                                 </div>
                                 <div class="row" style="padding-bottom: 10px;">
                                     <div class="col">
-                                        <Input type="text" class="form-control" id="inputCountry"
-                                            style="overflow: auto;" placeholder="Country" />
+                                        <input type="text" class="form-control" id="inputCountry"
+                                            style="overflow: auto;" formControlName="country" placeholder="Country" >
                                     </div>
                                     <div class="col" style="padding-left: 0;">
-                                        <Input type="text" class="form-control" id="inputZipCode"
-                                            style="overflow: auto;" placeholder="Zip Code" />
+                                        <input type="text" class="form-control" id="inputZipCode"
+                                            style="overflow: auto;" formControlName="zip" placeholder="Zip Code" >
                                     </div>
                                 </div>
+                            </div>
                                 <button type="submit" class="btn btn-primary btn-block mb-4">
                                     Sign up
                                 </button>

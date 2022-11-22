@@ -14,21 +14,8 @@ export class LoginComponent implements OnInit {
   newAttribute: any;
 
 
-  loginForm = this.formBuilder.group({
-    loginEmail: '1dipak@atai.ai',
-    loginPassword: '12'
-  });
-
   constructor(private formBuilder : FormBuilder,
     private loginService : LoginService) { 
-    this.createFormGroup();
-  }
-
-  createFormGroup() {
-    this.loginForm = this.formBuilder.group({
-      usernameFormControl: '1dipak@atai.ai',
-      passwordFormControl: '12',
-    });
   }
 
   onShowandHidePasswordClicked() {
@@ -50,14 +37,23 @@ export class LoginComponent implements OnInit {
     showPassword?.setAttribute('class' , this.newAttribute);
   }
 
-  onLoginClick(email:any,password:any){
+  loginForm:FormGroup = this.formBuilder.group({
+    email: [''],
+    password:[''],
+  });
+
+  onLoginClick(){
     // console.log("Hi"+this.loginForm)
-    const loginCred:LoginResponse = {
-      email,
-      password
-    }
+    const loginCred:LoginResponse = this.loginForm.value
+
+    
+    console.log(this.loginForm.value)
     this.loginService.loginPostRequest(loginCred);
+
+    this.loginForm.reset()
     // this.loginForm.reset();
+    // '1dipak@atai.ai' , '12'
+
   }
 
   ngOnInit(): void {

@@ -21,8 +21,8 @@
                                     Id:</label>
                             </div>
                             <div class="col" style="padding-left: 5px;">
-                                <Input type="text" class="form-control" id="loginEmail"
-                                    style="overflow: auto; border-radius: 10px;" placeholder="Enter your E-mail address" #email
+                                <input type="text" class="form-control" id="loginEmail"
+                                    style="overflow: auto; border-radius: 10px;" formControlName="email" placeholder="Enter your E-mail address" #email
                                      value=""/>
                             </div>
                         </div>
@@ -34,8 +34,8 @@
                                     style="font-size: 0.875rem; margin-top: 0; margin-bottom: 0; padding-top: 10px; padding-bottom:10px ; font-weight: 500;">Password:</label>
                             </div>
                             <div class="col input-group" style="padding-left: 5px;">
-                                <Input type="password" class="form-control" id="LoginPassword"
-                                    style="overflow: auto; border-radius: 10px;" placeholder="Enter your Password"
+                                <input type="password" class="form-control" id="LoginPassword"
+                                    style="overflow: auto; border-radius: 10px;" formControlName="password" placeholder="Enter your Password"
                                     #password value="" />
                                 <button class="btn btn-link fa-regular fa-eye-slash" id="hidePassword"
                                     style="padding-left: 10px; text-decoration: none; place-self: center; color: #6c757d;"
@@ -62,7 +62,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4" (click) = "onLoginClick('1dipak@atai.ai' , '12')">Sign In</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4" (click) = "onLoginClick()">Sign In</button>
 
                         <!-- Register buttons -->
                         <div class="text-center">
