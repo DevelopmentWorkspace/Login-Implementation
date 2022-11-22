@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   newAttribute: any;
 
 
-  constructor(private formBuilder : FormBuilder,
-    private loginService : LoginService) { 
+  constructor(private formBuilder: FormBuilder,
+    private loginService: LoginService) {
   }
 
   onShowandHidePasswordClicked() {
@@ -27,33 +27,26 @@ export class LoginComponent implements OnInit {
       indexOf = this.attributeValue?.indexOf('fa-eye');
       let openEye = 'fa-eye-slash';
       this.attributeValue[indexOf] = openEye;
-      password?.setAttribute('type' , 'password');
+      password?.setAttribute('type', 'password');
     } else {
       let openEye = 'fa-eye';
       this.attributeValue[indexOf] = openEye;
-      password?.setAttribute('type' , 'text');
+      password?.setAttribute('type', 'text');
     }
     this.newAttribute = this.attributeValue?.join(' ');
-    showPassword?.setAttribute('class' , this.newAttribute);
+    showPassword?.setAttribute('class', this.newAttribute);
   }
 
-  loginForm:FormGroup = this.formBuilder.group({
+  loginForm: FormGroup = this.formBuilder.group({
     email: [''],
-    password:[''],
+    password: [''],
   });
 
-  onLoginClick(){
-    // console.log("Hi"+this.loginForm)
-    const loginCred:LoginResponse = this.loginForm.value
-
-    
+  onLoginClick() {
+    const loginCred: LoginResponse = this.loginForm.value
     console.log(this.loginForm.value)
     this.loginService.loginPostRequest(loginCred);
-
     this.loginForm.reset()
-    // this.loginForm.reset();
-    // '1dipak@atai.ai' , '12'
-
   }
 
   ngOnInit(): void {

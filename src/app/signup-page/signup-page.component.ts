@@ -10,21 +10,19 @@ export class SignupPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-
-
   signUpForm: FormGroup = this.fb.group({
     firstName: ['', Validators.required],
     lastName: [''],
     emailID: [''],
-    date:[''],
+    date: [''],
     newPassword: [''],
     confirmPassword: [''],
     gender: [''],
     location: this.fb.group({
-    address: [''],
-    country: [''],
-    state: [''],
-    zip: [''],
+      address: [''],
+      country: [''],
+      state: [''],
+      zip: [''],
     })
   });
 
