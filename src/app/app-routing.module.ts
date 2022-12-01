@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { DefaultPageComponent } from './default-page/default-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AuthGuard } from './Services/auth.guard';
 
 const routes: Routes = [
-  { path : 'login' , component:LoginComponent}
+  {path:'',redirectTo:'login', pathMatch: 'full' },
+  { path : 'login' , component:DefaultPageComponent},
+  { path : 'landingPage' , component:LandingPageComponent, canActivate: [AuthGuard]}
+
 ];
 
 @NgModule({

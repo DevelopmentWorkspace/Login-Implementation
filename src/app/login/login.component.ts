@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../Services/login.service';
 import { LoginResponse } from '../ResponseTypings/login-response';
+import { LocalStorageService } from '../Services/local-storage.service'; 
+import { JwtDecoderService } from '../Services/jwt-decoder.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +15,14 @@ export class LoginComponent implements OnInit {
   password: HTMLElement | null | undefined;
   attributeValue: any = [];
   newAttribute: any;
-
+  response: any;
+  errorMessage: any;
 
   constructor(private formBuilder: FormBuilder,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private localStorageService: LocalStorageService,
+    private jwtDecoder: JwtDecoderService,
+    private router: Router) {
   }
 
   onShowandHidePasswordClicked() {
@@ -38,15 +45,50 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm: FormGroup = this.formBuilder.group({
-    email: [''],
-    password: [''],
+    email: ['',Validators.required],
+    password: ['',Validators.required],
   });
 
-  onLoginClick() {
+  decodingJWtToken(){
+    console.log('on decoder method')
+    if (this.response?.success) {
+      console.log('on decoder method')
+      this.localStorageService.set('token',this.response.results.token);
+      this.jwtDecoder.setToken(this.response.results.token);
+    } else {
+      this.router.navigate(['/landingPage'])
+      alert('retry login');
+    }
+    
+  }
+  
+  loginServiceCall(){
     const loginCred: LoginResponse = this.loginForm.value
-    console.log(this.loginForm.value)
-    this.loginService.loginPostRequest(loginCred);
-    this.loginForm.reset()
+    console.log(this.loginForm)
+    this.loginService.loginPostRequest(loginCred).subscribe({
+      next: async data => {
+        this.response = await data;
+        console.log(this.response.token)
+        console.log('results.token',this.response.results.token)
+        this.decodingJWtToken();
+      },
+      error: async error => {
+        this.errorMessage = await error.message;
+        console.error('There was an error!', error);
+        this.decodingJWtToken();
+      }        
+    });
+    console.log('login Servicec call')
+  }
+
+  onLoginClick() {
+
+    if (this.loginForm.status === 'VALID') {
+      this.loginServiceCall();
+      this.loginForm.reset();
+    } else {
+      alert('Please enter login Details')
+    }
   }
 
   ngOnInit(): void {

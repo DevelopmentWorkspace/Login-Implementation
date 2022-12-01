@@ -16,6 +16,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePickerComponent } from './NgbComponents/date-picker/date-picker.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { LoginService } from './Services/login.service';
+import { MatIconModule } from '@angular/material/icon';
+import { JwtDecoderService } from './Services/jwt-decoder.service';
+import { LocalStorageService } from './Services/local-storage.service';
+import { AuthGuard } from './Services/auth.guard';
+import { AppCookieService } from './Services/app-cookie.service';
+import { AuthorisedGuardService } from './Services/authorised-guard.service';
+import { DefaultPageComponent } from './default-page/default-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,8 @@ import { LoginService } from './Services/login.service';
     HeaderComponent,
     FooterComponent,
     DatePickerComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    DefaultPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +43,15 @@ import { LoginService } from './Services/login.service';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
-  providers: [LoginService],
+  providers: [LoginService,
+    JwtDecoderService,
+    LocalStorageService,
+    AuthorisedGuardService,
+    AppCookieService,
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
