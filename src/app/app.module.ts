@@ -23,6 +23,9 @@ import { AuthGuard } from './Services/auth.guard';
 import { AppCookieService } from './Services/app-cookie.service';
 import { AuthorisedGuardService } from './Services/authorised-guard.service';
 import { DefaultPageComponent } from './default-page/default-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
+import { DashboardFooterComponent } from './dashboard/dashboard-footer/dashboard-footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { DefaultPageComponent } from './default-page/default-page.component';
     FooterComponent,
     DatePickerComponent,
     SignupPageComponent,
-    DefaultPageComponent
+    DefaultPageComponent,
+    DashboardComponent,
+    DashboardHeaderComponent,
+    DashboardFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ import { DefaultPageComponent } from './default-page/default-page.component';
     LocalStorageService,
     AuthorisedGuardService,
     AppCookieService,
-    AuthGuard],
+    AuthGuard,
+  LoginComponent,
+  AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

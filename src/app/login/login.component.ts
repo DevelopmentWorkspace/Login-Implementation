@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../Services/login.service';
 import { LoginResponse } from '../ResponseTypings/login-response';
@@ -17,13 +17,13 @@ export class LoginComponent implements OnInit {
   newAttribute: any;
   response: any;
   errorMessage: any;
+  status = false;
 
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
     private localStorageService: LocalStorageService,
     private jwtDecoder: JwtDecoderService,
-    private router: Router) {
-  }
+    private router: Router) { }
 
   onShowandHidePasswordClicked() {
     const showPassword = document.getElementById('hidePassword');
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
       let openEye = 'fa-eye-slash';
       this.attributeValue[indexOf] = openEye;
       password?.setAttribute('type', 'password');
+      
     } else {
       let openEye = 'fa-eye';
       this.attributeValue[indexOf] = openEye;
@@ -55,11 +56,21 @@ export class LoginComponent implements OnInit {
       console.log('on decoder method')
       this.localStorageService.set('token',this.response.results.token);
       this.jwtDecoder.setToken(this.response.results.token);
+      this.storingDecodedDataToStorage()
+      this.localStorageService.isLoggedIn(this.response.success)
+      this.router.navigate(['/dashboard'])
     } else {
       this.router.navigate(['/landingPage'])
       alert('retry login');
     }
     
+  }
+
+  storingDecodedDataToStorage(){
+    var jwtDecodedData:any = JSON.stringify(this.jwtDecoder.getDecodeToken())
+    this.localStorageService.set('jwtPayload',jwtDecodedData)
+    var jwtPayload:any = JSON.parse(this.localStorageService.get('jwtPayload') as string)
+    console.log(jwtDecodedData,jwtPayload.emp_id)
   }
   
   loginServiceCall(){
@@ -78,7 +89,7 @@ export class LoginComponent implements OnInit {
         this.decodingJWtToken();
       }        
     });
-    console.log('login Servicec call')
+    console.log('login Service call')
   }
 
   onLoginClick() {
